@@ -20,12 +20,16 @@ function onTextInput(event) {
 function onFormSubmit(event) {
   event.preventDefault();
 
-  console.log(formData);
+  if (formEl.elements.email.value === '' || formEl.elements.message.value === '') {
+    alert('Enter something in field');
+  } else {
+    console.log(formData);
 
-  event.currentTarget.reset();
-  localStorage.removeItem(STORAGE_KEY);
+    event.currentTarget.reset();
+    localStorage.removeItem(STORAGE_KEY);
 
-  formData = {};
+    formData = {};
+  }
 }
 
 function getStorageData() {
